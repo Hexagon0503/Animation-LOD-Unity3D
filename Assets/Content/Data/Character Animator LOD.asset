@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lodDatas:
   - animFrame: 30
-  - animFrame: 15
-  - animFrame: 5
+  - animFrame: 20
+  - animFrame: 10
