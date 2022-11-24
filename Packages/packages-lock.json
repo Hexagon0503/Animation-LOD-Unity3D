@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.autodesk.fbx": {
+      "version": "4.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c7eedf85c79e2ce06658c8060ca38a282f2ca7ab"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.7",
       "depth": 0,
@@ -15,6 +29,16 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.formats.fbx": {
+      "version": "4.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.7.1",
+        "com.autodesk.fbx": "4.2.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
@@ -58,6 +82,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.recorder": {
+      "version": "2.5.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.services.core": {
       "version": "1.0.1",
       "depth": 1,
@@ -88,8 +121,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.4.8",
-      "depth": 0,
+      "version": "1.7.1",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.director": "1.0.0",

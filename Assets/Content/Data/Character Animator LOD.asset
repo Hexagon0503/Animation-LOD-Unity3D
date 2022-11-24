@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2371b85d452037f478d4d54fc47cf5d2, type: 3}
+  m_Name: Character Animator LOD
+  m_EditorClassIdentifier: 
+  lodDatas:
+  - animFrame: 30
+  - animFrame: 15
+  - animFrame: 5

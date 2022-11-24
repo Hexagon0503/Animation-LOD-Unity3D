@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimatorLOD : MonoBehaviour
@@ -8,12 +6,7 @@ public class AnimatorLOD : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public AnimatorLODType animatorLODType;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    [SerializeField] private float frameDelay;
+    public int animFPS;
     #endregion
 
     #region FIELDS
@@ -29,6 +22,15 @@ public class AnimatorLOD : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    public bool IsCulled
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public bool UnscaledTime
     {
         get;
@@ -40,9 +42,12 @@ public class AnimatorLOD : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    private void OnEnable()
+    private void Start()
     {
-        animator.enabled = false;
+        if (animator.enabled)
+        {
+            animator.enabled = false;
+        }
     }
 
     /// <summary>
@@ -50,11 +55,11 @@ public class AnimatorLOD : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if(!Active)
+        if (!Active || IsCulled)
         {
             return;
         }
-        if(Time.frameCount % frameDelay == 0)
+        if (Time.frameCount % FrameDelay == 0)
         {
             UpdateAnimator();
         }
@@ -67,7 +72,7 @@ public class AnimatorLOD : MonoBehaviour
     /// </summary>
     public void UpdateAnimator()
     {
-        animator.Update(deltaTime * frameDelay);
+        animator.Update(deltaTime * FrameDelay);
     }
     #endregion
 
@@ -75,11 +80,22 @@ public class AnimatorLOD : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    private int FrameDelay
+    {
+        get
+        {
+            return Mathf.Max(1, Mathf.CeilToInt(Time.frameCount / Time.time) / animFPS);
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     private float deltaTime
     {
         get
         {
-            if(UnscaledTime)
+            if (UnscaledTime)
             {
                 return Time.unscaledDeltaTime;
             }
@@ -95,7 +111,7 @@ public class AnimatorLOD : MonoBehaviour
     {
         get
         {
-            if(_animator == null)
+            if (_animator == null)
             {
                 _animator = GetComponent<Animator>();
             }
